@@ -45,7 +45,6 @@ function paginateAjax(val) {
     var start = val.from;
     var end = val.last_page;
     var paginator = $('.pagination').empty();
-    event.preventDefault();   
     for (var i = 1; i <= val.last_page; i++) {
         paginator.append('<li class="page-item"><a class="page-link" href="http://localhost:8000?page='+i+'">'+i);
         //var innerpage = $('<span>').attr('class', 'page-link');
