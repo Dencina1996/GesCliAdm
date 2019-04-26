@@ -15,6 +15,7 @@
                 <a href="#costumModal10" data-toggle="modal">
                     <button class="btn btn-primary" type="submit">Añadir Cliente</button>
                 </a>
+                <button id="ajaxSearch" class="btn btn-primary" style="background-color: green" onclick="ajaxSearch()">Buscar por AJAX</button>
             </div>
             
         </div>
@@ -78,8 +79,12 @@
                         <button class="btn btn-primary" type="submit">
                             Save changes
                         </button>
+                        
                     </div>
                 </form>
+                <button class="btn btn-primary" onclick="newClientAjax()">
+                    Guardar con AJAX
+                </button>
             </div>
         </div>
     </div>
