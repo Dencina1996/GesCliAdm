@@ -61,7 +61,7 @@ class AjaxController extends Controller
         $clientes = DB::table('clientes')
                 ->select('id', 'Nombre', 'Localidad', 'cif/nif')
                 ->paginate(10);            
-                return $clientes;
+                return json_encode($clientes);
         }
     }
 

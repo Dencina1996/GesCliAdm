@@ -5,13 +5,18 @@ function ajaxSearch(){
             dataType: 'json',
             data: {filtro},
         })
-        .done(function(val){
+        .done(function(val) {
             console.log(val);
             $('#ClientsTable').children().remove();
-            //$("#ClientsPaginate").children().remove();
             CreateTable("#ClientsTable",val.data,undefined);
             createFilter('#ClientsTable table thead',"/","clientes","table");    
             paginateAjax(val);
+            $('.clickable').each(function(){
+            $(this).attr("data-href","/clients/"+$(this).attr("id"));
+            })
+            $('.clickable').click(function(){
+                window.location=$(this).data('href');
+            });
         })
         .fail(function(){
             console.log("Ha ocurrido un problema");
@@ -25,7 +30,7 @@ function newClientAjax() {
     $.ajax({
         url: '/clients/create',
         type: 'POST',
-        data: $('#form').first().serialize()
+        data: $('#form').serialize()
     })
     .done(function() {
         console.log("Se ha añadido el cliente");
@@ -51,4 +56,4 @@ function paginateAjax(val) {
         //innerpage.innerHTML = i;
         //page.after(innerpage);
    }
-}
+}   
